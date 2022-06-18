@@ -34,10 +34,10 @@ export default class fieldBegin extends require('../model'){
 				type=(index!=-1 ?  instruct.substring(0,index) : instruct).toLowerCase()
 		
 			this.field=this.constructor.factory(instruct,this.wDoc, this, type)
-			if(this.field)
+			if(this.field) {
 				this.field=new basic(instruct,this.wDoc,this,type)
-			
-			this.field.parse(factories)
+				this.field.parse(factories)
+			}
 		}
 	}
 	
