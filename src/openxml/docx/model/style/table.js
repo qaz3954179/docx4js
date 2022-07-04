@@ -110,7 +110,8 @@ Table.CellProperties=class CellProperties extends Style.Properties{
 		return value
 	}
 	shd(x){
-		return this.asColor(x.attr('w:fill'))
+		// 默认背景为白色
+		return this.asColor(x.attr('w:fill') || '#ffffff');
 	}
 	cnfStyle(x,t){
 		return Object.keys(t=this.asObject(x)).map(a=>t[a]=='1' && StyleNameMap[a]).filter(a=>a)
