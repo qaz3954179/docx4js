@@ -67,7 +67,7 @@ export default class Factory extends Base{
 				switch(wXml.lastChild.localName){
 				case 'fldChar':
 				case 'instrText':
-					return factory(wXml.lastChild,doc,parent)
+					return this.create(wXml.lastChild,doc,parent)
 				}
 			}
 
