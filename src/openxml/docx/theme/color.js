@@ -18,6 +18,6 @@ export default class color {
 				return '#'+t.firstChild.attr('val')
 			}
 		} else
-			return 'black'
+			return '#eee' // 不确定字体颜色和背景色是不是都用这个默认值，给一个中间色防止出现意外。
 	}
 }
