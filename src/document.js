@@ -67,11 +67,16 @@ export default class Document{
 		var DocumentSelf=this
 		return new Promise((resolve, reject)=>{
 			function parse(data, props={}){
-				var raw=new JSZip(data),parts={}
-				raw.filter(function(path,file){
-					parts[path]=file
-				})
-				resolve(new DocumentSelf(parts,raw,props))
+				try {
+					// 如果doc 只修改文件名为 docx，则会 解压缩出错
+					var raw=new JSZip(data),parts={}
+					raw.filter(function(path,file){
+						parts[path]=file
+					})
+					resolve(new DocumentSelf(parts,raw,props))
+				} catch (e) {
+					reject(e);
+				}
 			}
 
 
